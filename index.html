@@ -83,67 +83,53 @@
 </section>
 
 <!-- Servicios -->
-<section id="servicios" class="section services">
+<section id="services" class="services">
   <div class="container">
     <h2 class="section__title">Nuestros Servicios</h2>
     <p class="section__subtitle">Soluciones digitales integrales para hacer crecer tu negocio</p>
-
-    <div class="grid cards">
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg width="40" height="40"><use href="assets/icons.svg#ads"></use></svg>
-        </div>
-        <h3 class="card__title">Publicidad Digital</h3>
-        <p class="card__text">Campañas en Google Ads y Meta Ads, optimizadas para resultados medibles y escalables.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg width="40" height="40"><use href="assets/icons.svg#content"></use></svg>
-        </div>
-        <h3 class="card__title">Contenido & Social Media</h3>
-        <p class="card__text">Diseño de contenidos, gestión de comunidades y estrategias que conectan con tu audiencia.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg width="40" height="40"><use href="assets/icons.svg#branding"></use></svg>
-        </div>
-        <h3 class="card__title">Branding & Web</h3>
-        <p class="card__text">Identidad visual, diseño de landings y sitios web que convierten visitantes en clientes.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg width="40" height="40"><use href="assets/icons.svg#seo"></use></svg>
-        </div>
-        <h3 class="card__title">SEO & Analítica</h3>
-        <p class="card__text">Optimización de motores de búsqueda y análisis de datos para mejorar tu visibilidad y conversiones.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg width="40" height="40"><use href="assets/icons.svg#email"></use></svg>
-        </div>
-        <h3 class="card__title">Email Marketing</h3>
-        <p class="card__text">Campañas de correo segmentadas, automatizaciones y seguimiento de métricas clave.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg width="40" height="40"><use href="assets/icons.svg#strategy"></use></svg>
-        </div>
+    
+    <div class="cards">
+      
+      <article class="card">
+        <div class="card__icon">🚀</div>
         <h3 class="card__title">Estrategia Digital</h3>
-        <p class="card__text">Planificación integral de marketing digital adaptada a objetivos específicos de tu negocio.</p>
+        <p class="card__text">Definimos objetivos claros y diseñamos un plan digital personalizado para tu marca.</p>
       </article>
-    </div>
-
-    <!-- Imagen decorativa opcional -->
-    <div class="services__image">
-      <img src="img/servicios-ejemplo.webp" alt="Ejemplo de servicios" loading="lazy">
+      
+      <article class="card">
+        <div class="card__icon">📈</div>
+        <h3 class="card__title">SEO & Analítica</h3>
+        <p class="card__text">Optimización en motores de búsqueda y análisis de datos para aumentar tu visibilidad.</p>
+      </article>
+      
+      <article class="card">
+        <div class="card__icon">🎯</div>
+        <h3 class="card__title">Publicidad Online</h3>
+        <p class="card__text">Campañas en Google Ads, Meta y más, con foco en performance y resultados medibles.</p>
+      </article>
+      
+      <article class="card">
+        <div class="card__icon">✨</div>
+        <h3 class="card__title">Branding & Diseño</h3>
+        <p class="card__text">Creamos identidades visuales memorables que conectan con tu audiencia.</p>
+      </article>
+      
+      <article class="card">
+        <div class="card__icon">💬</div>
+        <h3 class="card__title">Gestión de Redes</h3>
+        <p class="card__text">Contenido estratégico y gestión de comunidades para potenciar tu presencia online.</p>
+      </article>
+      
+      <article class="card">
+        <div class="card__icon">🌐</div>
+        <h3 class="card__title">Desarrollo Web</h3>
+        <p class="card__text">Sitios rápidos, modernos y optimizados para ofrecer la mejor experiencia de usuario.</p>
+      </article>
+    
     </div>
   </div>
 </section>
+
 
 <!-- Servicios --
 <section id="servicios" class="section services">
@@ -306,11 +292,19 @@
     <svg width="24" height="24" aria-hidden="true"><use href="assets/icons.svg#whatsapp"></use></svg>
   </a>
 
-  <!-- JS -->
+  <!-- JS --
   <script src="js/utils.js" defer></script>
   <script src="js/nav.js" defer></script>
   <script src="js/animations.js" defer></script>
   <script src="js/form.js" defer></script>
   <script src="js/main.js" defer></script>
+-->
+  <!-- Señalamos que hay JS para habilitar efectos solo cuando cargue -->
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- Punto de entrada en ES Modules -->
+<script type="module" src="js/main.js"></script>
+
 </body>
 </html>
+
