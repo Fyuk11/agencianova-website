@@ -21,7 +21,6 @@ export const inView = (el, offset = 0) => {
 import { qsa } from './utils.js';
 
 const reveals = qsa('.reveal');
-
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
