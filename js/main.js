@@ -53,5 +53,3 @@ if (video) {
 // Cases
 import { initCasesSlider } from "./cases.js";
 initCasesSlider();
-
-

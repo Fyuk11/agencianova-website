@@ -187,6 +187,28 @@ a{color:inherit; text-decoration:none}
   }
 }
 
+/* Overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999; /* debajo del menú, arriba del resto */
+}
+
+.nav-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Ajustar z-index del menú */
+.nav {
+  z-index: 1000;
+}
+
+
 
 
 
