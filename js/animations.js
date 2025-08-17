@@ -1,7 +1,9 @@
 import { qsa } from './utils.js';
 
-const reveals = qsa('.reveal');
-
+// Casos
+// animations.js (ya lo tienes)
+// Esto detecta cualquier elemento con la clase "reveal"
+const reveals = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

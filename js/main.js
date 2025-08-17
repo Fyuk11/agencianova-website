@@ -4,6 +4,19 @@ import './nav.js';
 import './animations.js';
 import './form.js';
 
+import './utils.js';
+import './reveal.js';
+import './cases.js'
+
+
+// js/main.js
+import { initNav } from "./nav.js";
+
+// inicia nav
+initNav();
+
+// (lo que ya tenías)
+
 // Hero: typed effect en el subtítulo
 const typedText = document.querySelector('.hero__subtitle');
 if (typedText) {
@@ -13,7 +26,6 @@ if (typedText) {
     "Diseño, branding y campañas efectivas adaptadas a tu negocio."
   ];
   let i = 0, j = 0;
-
   const typeEffect = () => {
     if (j < phrases[i].length) {
       typedText.textContent += phrases[i][j++];
@@ -35,5 +47,11 @@ const video = document.querySelector('.hero__video');
 if (video) {
   video.controls = false;
   video.disablePictureInPicture = true;
-  video.setAttribute('tabindex', '-1'); // evita foco
+  video.setAttribute('tabindex', '-1');
 }
+
+// Cases
+import { initCasesSlider } from "./cases.js";
+initCasesSlider();
+
+

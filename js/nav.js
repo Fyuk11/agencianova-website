@@ -1,39 +1,34 @@
-import { qs, qsa, on, throttle } from './utils.js';
+// js/nav.js
+export function initNav() {
+  const nav = document.querySelector("[data-nav]");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  if (!nav || !toggle) return;
 
-const header = qs('[data-header]');
-const nav = qs('[data-nav]');
-const toggle = qs('[data-nav-toggle]');
-const links = qsa('.nav__link');
+  const open = () => {
+    nav.classList.add("is-open");
+    toggle.classList.add("is-active"); // animación del hamburger
+    toggle.setAttribute("aria-expanded", "true");
+    document.documentElement.classList.add("nav-open");
+  };
 
-const closeNav = () => {
-  nav.classList.remove('is-open');
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.innerHTML = `<svg width="24" height="24" aria-hidden="true"><use href="assets/icons.svg#menu"></use></svg>`;
-};
+  const close = () => {
+    nav.classList.remove("is-open");
+    toggle.classList.remove("is-active"); // animación del hamburger
+    toggle.setAttribute("aria-expanded", "false");
+    document.documentElement.classList.remove("nav-open");
+  };
 
-const openNav = () => {
-  nav.classList.add('is-open');
-  toggle.setAttribute('aria-expanded', 'true');
-  toggle.innerHTML = `<svg width="24" height="24" aria-hidden="true"><use href="assets/icons.svg#close"></use></svg>`;
-};
-
-on(toggle, 'click', () => nav.classList.contains('is-open') ? closeNav() : openNav());
-links.forEach(l => on(l, 'click', closeNav));
-
-// Header shrink + botón top
-const btnTop = document.getElementById('btnTop');
-const onScroll = throttle(() => {
-  const scrolled = window.scrollY > 10;
-  header.classList.toggle('is-scrolled', scrolled);
-  btnTop.classList.toggle('is-visible', window.scrollY > 350);
-  // Scroll spy
-  let current = '';
-  qsa('section[id]').forEach(sec => {
-    const top = sec.offsetTop - 100;
-    if (scrollY >= top) current = sec.id;
+  toggle.addEventListener("click", () => {
+    nav.classList.contains("is-open") ? close() : open();
   });
-  links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === `#${current}`));
-}, 100);
 
-on(window, 'scroll', onScroll);
-on(btnTop, 'click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  // cerrar al hacer clic en un link
+  nav.querySelectorAll(".nav__link").forEach(link => {
+    link.addEventListener("click", close);
+  });
+
+  // cerrar con ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+}
