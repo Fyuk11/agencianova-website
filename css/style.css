@@ -113,6 +113,7 @@ a{color:inherit; text-decoration:none}
 }
 
 /* Nav panel */
+/*
 .nav {
   position: fixed;
   top: 0;
@@ -120,7 +121,7 @@ a{color:inherit; text-decoration:none}
   width: 65%;
   max-width: 280px;
   background: var(--surface);
-  padding: 80px 24px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -134,7 +135,7 @@ a{color:inherit; text-decoration:none}
   transform: translateX(0);
 }
 
-/* Links */
+/* Links *
 .nav__list {
   list-style: none;
   display: flex;
@@ -153,9 +154,135 @@ a{color:inherit; text-decoration:none}
   color: var(--text);
 }
 
+/*.nav__cta {
+  margin-top: 0;
+} *
+
 .nav__cta {
-  margin-top: auto;
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  text-align: left;
 }
+*/
+/* Nav panel */
+/*
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 65%;
+  max-width: 280px;
+  background: var(--surface);
+  padding: 24px 20px;  /* ajusté padding general *
+  display: flex;
+  flex-direction: column;
+  gap: 16px;           /* espacio entre items *
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  z-index: 1020;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.15);
+}
+
+/* Abrir menú *
+.nav.is-open {
+  transform: translateX(0);
+}
+
+/* Links *
+.nav__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  color: var(--muted);
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--text);
+}
+
+/* Botón CTA ahora alineado con links *
+.nav__cta {
+  margin-top: 8px;      /* pequeño espacio desde último link *
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+*/
+/* Nav panel */
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: auto;            /* ancho según contenido */
+  min-width: 200px;       /* opcional, para no achicar demasiado */
+  max-width: 280px;
+  background: var(--surface);
+  padding: 24px 20px;     /* padding general */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;              /* espacio entre items */
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  z-index: 1020;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.15);
+}
+
+/* Abrir menú */
+.nav.is-open {
+  transform: translateX(0);
+}
+
+/* Lista de links */
+.nav__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links individuales */
+.nav__link {
+  color: var(--muted);
+  padding: 8px 12px;     /* igual padding para todos */
+  text-decoration: none;
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--text);
+  background: rgba(0, 123, 255, 0.1); /* efecto hover azul suave */
+  border-radius: 6px;    /* bordes suaves */
+}
+
+/* Botón Cotizar igual que los links */
+.nav__cta {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 12px;
+  display: block;
+  text-align: left;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav__cta:hover {
+  background: rgba(0, 123, 255, 0.1); /* mismo hover que links */
+  color: var(--text);
+}
+
+
 
 /* Botón X */
 .nav__close {
