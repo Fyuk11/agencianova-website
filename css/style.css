@@ -31,7 +31,7 @@ a{color:inherit; text-decoration:none}
 .section__title{font-size:clamp(1.6rem,2.8vw,2.2rem); margin-bottom:.5rem}
 .section__subtitle{color:var(--muted); margin-bottom:2rem}
 
-/* Header*/
+/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -43,6 +43,7 @@ a{color:inherit; text-decoration:none}
   border-bottom: 1px solid #1c222b;
   transition: background-color 0.3s, padding 0.3s;
 }
+
 .header.is-scrolled {
   background-color: rgba(0,0,0,0.95);
   padding: 10px 0;
@@ -62,28 +63,18 @@ a{color:inherit; text-decoration:none}
   text-decoration: none;
 }
 
+/* Botón hamburguesa */
 .nav-toggle {
-  background: none;
-  border: 1px solid #242a33;
-  color: var(--text);
-  padding: 8px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-/* Hamburger icon */
-.nav-toggle {
-  position: relative;
   width: 32px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: none;
-  border: none;
+  border: 1px solid #242a33;
+  border-radius: 10px;
   cursor: pointer;
+  padding: 8px 10px;
 }
 
 .hamburger,
@@ -99,103 +90,100 @@ a{color:inherit; text-decoration:none}
   position: relative;
 }
 
-.hamburger::before,
-.hamburger::after {
-  position: absolute;
-}
-
 .hamburger::before {
+  position: absolute;
   top: -8px;
 }
 
 .hamburger::after {
+  position: absolute;
   bottom: -8px;
 }
 
-/* Animación al abrir el menú */
-.nav.is-open + .nav-toggle .hamburger,
 .nav-toggle.is-active .hamburger {
   background-color: transparent;
 }
 
-.nav.is-open + .nav-toggle .hamburger::before,
 .nav-toggle.is-active .hamburger::before {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(5px,5px);
 }
 
-.nav.is-open + .nav-toggle .hamburger::after,
 .nav-toggle.is-active .hamburger::after {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(5px,-5px);
 }
 
-
+/* Nav panel */
 .nav {
   position: fixed;
-  inset: 0 0 0 35%;
-  transform: translateX(100%);
-  transition: 0.35s;
+  top: 0;
+  right: 0;
+  width: 65%;
+  max-width: 280px;
   background: var(--surface);
   padding: 80px 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  z-index: 1020;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.15);
 }
+
+.nav.is-open {
+  transform: translateX(0);
+}
+
+/* Links */
 .nav__list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .nav__link {
   color: var(--muted);
   padding: 8px 0;
   text-decoration: none;
 }
+
 .nav__link:hover,
 .nav__link.is-active {
   color: var(--text);
 }
+
 .nav__cta {
   margin-top: auto;
 }
 
-/* Abrir menú */
-.nav.is-open {
-  transform: translateX(0);
+/* Botón X */
+.nav__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  display: none;
+  z-index: 1050;
 }
 
-@media (min-width:900px){
-  .nav {
-    position: static;
-    transform: none;
-    background: transparent;
-    padding: 0;
-    inset: auto;
-    flex-direction: row;
-    gap: 24px;
-    align-items: center;
-  }
-  .nav__list {
-    flex-direction: row;
-    gap: 24px;
-  }
-  .nav__cta {
-    margin: 0;
-  }
-  .nav-toggle {
-    display: none;
-  }
+.nav.is-open .nav__close {
+  display: block;
 }
 
 /* Overlay */
 .nav-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 999; /* debajo del menú, arriba del resto */
+  transition: opacity .28s ease;
+  z-index: 1010;
 }
 
 .nav-overlay.is-active {
@@ -203,12 +191,35 @@ a{color:inherit; text-decoration:none}
   pointer-events: auto;
 }
 
-/* Ajustar z-index del menú */
-.nav {
-  z-index: 1000;
+/* Desktop */
+@media (min-width: 900px){
+  .nav {
+    position: static;
+    transform: none !important;
+    background: transparent;
+    padding: 0;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    box-shadow: none;
+    height: auto;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .nav__cta {
+    margin: 0;
+  }
+
+  .nav-toggle,
+  .nav__close,
+  .nav-overlay {
+    display: none !important;
+  }
 }
-
-
 
 
 

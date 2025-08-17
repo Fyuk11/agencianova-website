@@ -40,16 +40,22 @@
 </head>
 <body>
 
-<!-- Header -->
+<!-- Header --
 <header class="header" data-header>
   <div class="container header__inner">
     <a href="#" class="logo" aria-label="Agencia Nova">Nova</a>
 
-    <!-- Botón hamburguesa -->
+    <!-- Botón hamburguesa --
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-nav-toggle>
-      <!-- Ícono simple con HTML/CSS para no depender de SVG -->
+      <!-- Ícono simple con HTML/CSS para no depender de SVG --
       <span class="hamburger"></span>
     </button>
+
+<!-- Botón cerrar (oculto por defecto) --
+<button class="nav__close" data-nav-close aria-label="Cerrar menú">
+  ✕
+</button>
+
 
     <nav class="nav" data-nav>
       <ul class="nav__list">
@@ -63,9 +69,73 @@
 
    <div class="nav-overlay" data-nav-overlay></div>
 
-
   </div>
 </header>
+-->
+<!--
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a href="#hero" class="logo" aria-label="Agencia Nova">Nova</a>
+
+    <!-- Botón hamburguesa --
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-nav-toggle>
+      <span class="hamburger"></span>
+    </button>
+
+    <!-- Nav --
+    <nav class="nav" data-nav>
+      <!-- Botón X --
+   <!--   <button class="nav__close" data-nav-close aria-label="Cerrar menú">✕</button> --
+      <button class="nav__close" aria-label="Cerrar menú" data-nav-close>
+  ✕
+</button>
+
+
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#hero">Inicio</a></li>
+        <li><a class="nav__link" href="#services">Servicios</a></li>
+        <li><a class="nav__link" href="#casos">Casos</a></li>
+        <li><a class="nav__link" href="#contacto">Contacto</a></li>
+      </ul>
+
+      <a class="btn btn--primary nav__cta" href="#contacto">Cotizar</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Overlay (colocar justo después del header o al final del body) --
+<div class="nav-overlay" data-nav-overlay></div>
+-->
+
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a href="#hero" class="logo" aria-label="Agencia Nova">Nova</a>
+
+    <!-- Botón hamburguesa -->
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-nav-toggle>
+      <span class="hamburger"></span>
+    </button>
+
+    <!-- Overlay -->
+    <div class="nav-overlay" data-nav-overlay></div>
+
+    <!-- Nav -->
+    <nav class="nav" data-nav>
+      <!-- Botón X -->
+      <button class="nav__close" aria-label="Cerrar menú" data-nav-close>✕</button>
+
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#hero">Inicio</a></li>
+        <li><a class="nav__link" href="#services">Servicios</a></li>
+        <li><a class="nav__link" href="#casos">Casos</a></li>
+        <li><a class="nav__link" href="#contacto">Contacto</a></li>
+      </ul>
+
+      <a class="btn btn--primary nav__cta" href="#contacto">Cotizar</a>
+    </nav>
+  </div>
+</header>
+
 
 <!-- Hero -->
 <section id="hero" class="hero">
