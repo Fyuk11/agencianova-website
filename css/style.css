@@ -636,14 +636,12 @@ html, body {
   right: 0.5rem;
 }
 
-
-
 /* Testimonios */
 .testimonials__wrap {
   display: flex;
   overflow: hidden;
   scroll-snap-type: x mandatory;
-  position: relative; /* referencia interna */
+  position: relative; /* referencia interna para los botones */
 }
 
 .testimonial {
@@ -683,11 +681,13 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 #prevTestimonial:hover, #nextTestimonial:hover {
   background: rgba(0,0,0,0.6);
+  transform: scale(1.05);
 }
 
 #prevTestimonial { left: 8px; }
@@ -697,6 +697,48 @@ html, body {
 .container {
   position: relative;
 }
+
+/* Dots indicadores */
+.testimonials__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.testimonials__dot {
+  width: 10px;
+  height: 10px;
+  background: var(--muted);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.testimonials__dot.active {
+  background: var(--text);
+  transform: scale(1.2);
+}
+
+/* Responsive: mobile-friendly */
+@media (max-width: 768px) {
+  #prevTestimonial, #nextTestimonial {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+
+  .testimonials__dots {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .testimonials__dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 
 
 /* Planes/precios*/

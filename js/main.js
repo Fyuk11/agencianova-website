@@ -54,37 +54,9 @@ if (video) {
 import { initCasesSlider } from "./cases.js";
 initCasesSlider();
 
-// Testimonios
-/*document.addEventListener("DOMContentLoaded", () => {
-  const wrap = document.querySelector(".testimonials__wrap");
-  const testimonials = document.querySelectorAll(".testimonial");
-  const prevBtn = document.getElementById("prevTestimonial");
-  const nextBtn = document.getElementById("nextTestimonial");
-
-  let currentIndex = 0;
-
-  function showTestimonial(index) {
-    const offset = testimonials[index].offsetLeft;
-    wrap.scrollTo({
-      left: offset,
-      behavior: "smooth"
-    });
-  }
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-    showTestimonial(currentIndex);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    showTestimonial(currentIndex);
-  });
-});
-*/
 
 // Testimonios con flechas centradas en la tarjeta activa
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const wrap = document.querySelector(".testimonials__wrap");
   const testimonials = document.querySelectorAll(".testimonial");
   const prevBtn = document.getElementById("prevTestimonial");
@@ -110,16 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showTestimonial((currentIndex + 1) % testimonials.length);
   });
 
-  // Centrar botones verticalmente según tarjeta activa
-  /*function updateButtonPosition() {
-    const activeCard = testimonials[currentIndex];
-    const wrapRect = wrap.getBoundingClientRect();
-    const cardRect = activeCard.getBoundingClientRect();
-    const top = cardRect.top - wrapRect.top + activeCard.offsetHeight / 2;
 
-    prevBtn.style.top = `${top}px`;
-    nextBtn.style.top = `${top}px`;
-  } */
 function updateButtonPosition() {
   const activeCard = testimonials[currentIndex];
   const top = activeCard.offsetTop + activeCard.offsetHeight / 2 + 33;
@@ -142,4 +105,255 @@ function updateButtonPosition() {
     if (startX - endX > 50) showTestimonial((currentIndex + 1) % testimonials.length);
     else if (endX - startX > 50) showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length);
   });
+});
+*/
+// Testimonios
+/*document.addEventListener("DOMContentLoaded", () => {
+  const wrap = document.querySelector(".testimonials__wrap");
+  const testimonials = document.querySelectorAll(".testimonial");
+  const prevBtn = document.getElementById("prevTestimonial");
+  const nextBtn = document.getElementById("nextTestimonial");
+  const dotsContainer = document.querySelector(".testimonials__dots");
+
+  let currentIndex = 0;
+  let autoplayInterval;
+
+  // Crear indicadores
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.classList.add("testimonials__dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showTestimonial(i));
+    dotsContainer.appendChild(dot);
+  });
+  const dots = document.querySelectorAll(".testimonials__dot");
+
+  function showTestimonial(index) {
+    currentIndex = index;
+    const offset = testimonials[index].offsetLeft;
+    wrap.scrollTo({ left: offset, behavior: "smooth" });
+    updateButtonPosition();
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex].classList.add("active");
+  }
+
+  function updateButtonPosition() {
+    const activeCard = testimonials[currentIndex];
+    const top = activeCard.offsetTop + activeCard.offsetHeight / 2 + 33;
+    prevBtn.style.top = `${top}px`;
+    nextBtn.style.top = `${top}px`;
+  }
+
+  prevBtn.addEventListener("click", () =>
+    showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length)
+  );
+  nextBtn.addEventListener("click", () =>
+    showTestimonial((currentIndex + 1) % testimonials.length)
+  );
+
+  // Swipe en móvil
+  let startX = 0;
+  wrap.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
+  wrap.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) showTestimonial((currentIndex + 1) % testimonials.length);
+    else if (endX - startX > 50) showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length);
+  });
+
+  // Autoplay
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      showTestimonial((currentIndex + 1) % testimonials.length);
+    }, 5000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  wrap.addEventListener("mouseenter", stopAutoplay);
+  wrap.addEventListener("mouseleave", startAutoplay);
+
+  updateButtonPosition();
+  window.addEventListener("resize", updateButtonPosition);
+
+  startAutoplay();
+});
+*/
+
+// Ultimo
+/*document.addEventListener("DOMContentLoaded", () => {
+  const wrap = document.querySelector(".testimonials__wrap");
+  const testimonials = document.querySelectorAll(".testimonial");
+  const prevBtn = document.getElementById("prevTestimonial");
+  const nextBtn = document.getElementById("nextTestimonial");
+  
+  // Crear contenedor de dots si no existe
+  let dotsContainer = document.querySelector(".testimonials__dots");
+  if (!dotsContainer) {
+    dotsContainer = document.createElement("div");
+    dotsContainer.classList.add("testimonials__dots");
+    wrap.parentNode.appendChild(dotsContainer);
+  }
+
+  const dots = [];
+
+  let currentIndex = 0;
+  let autoplayInterval;
+
+  // Crear indicadores
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.classList.add("testimonials__dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showTestimonial(i));
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+  });
+
+  function showTestimonial(index) {
+    currentIndex = index;
+    const offset = testimonials[index].offsetLeft;
+    wrap.scrollTo({ left: offset, behavior: "smooth" });
+    updateButtonPosition();
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex].classList.add("active");
+  }
+
+  function updateButtonPosition() {
+    const activeCard = testimonials[currentIndex];
+    const top = activeCard.offsetTop + activeCard.offsetHeight / 2 + 33; // ajustar según necesidad
+    prevBtn.style.top = `${top}px`;
+    nextBtn.style.top = `${top}px`;
+  }
+
+  // Flechas
+  prevBtn.addEventListener("click", () =>
+    showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length)
+  );
+  nextBtn.addEventListener("click", () =>
+    showTestimonial((currentIndex + 1) % testimonials.length)
+  );
+
+  // Swipe móvil
+  let startX = 0;
+  wrap.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+  wrap.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) showTestimonial((currentIndex + 1) % testimonials.length);
+    else if (endX - startX > 50) showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length);
+  });
+
+  // Autoplay
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      showTestimonial((currentIndex + 1) % testimonials.length);
+    }, 5000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  wrap.addEventListener("mouseenter", stopAutoplay);
+  wrap.addEventListener("mouseleave", startAutoplay);
+
+  // Inicializar
+  showTestimonial(currentIndex);
+  window.addEventListener("resize", updateButtonPosition);
+  startAutoplay();
+});
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wrap = document.querySelector(".testimonials__wrap");
+  const testimonials = document.querySelectorAll(".testimonial");
+  const prevBtn = document.getElementById("prevTestimonial");
+  const nextBtn = document.getElementById("nextTestimonial");
+
+  // Crear contenedor de dots si no existe
+  let dotsContainer = document.querySelector(".testimonials__dots");
+  if (!dotsContainer) {
+    dotsContainer = document.createElement("div");
+    dotsContainer.classList.add("testimonials__dots");
+    wrap.parentNode.appendChild(dotsContainer);
+  }
+
+  const dots = [];
+  let currentIndex = 0;
+  let autoplayInterval;
+
+  // Crear indicadores
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.classList.add("testimonials__dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showTestimonial(i));
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+  });
+
+  function showTestimonial(index) {
+    currentIndex = index;
+    const offset = testimonials[index].offsetLeft;
+    wrap.scrollTo({ left: offset, behavior: "smooth" });
+    updateButtonPosition();
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex].classList.add("active");
+  }
+
+  function updateButtonPosition() {
+    const activeCard = testimonials[currentIndex];
+    const top = activeCard.offsetTop + activeCard.offsetHeight / 2 + 33; // ajustar según diseño
+    prevBtn.style.top = `${top}px`;
+    nextBtn.style.top = `${top}px`;
+  }
+
+  // Flechas
+  prevBtn.addEventListener("click", () =>
+    showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length)
+  );
+  nextBtn.addEventListener("click", () =>
+    showTestimonial((currentIndex + 1) % testimonials.length)
+  );
+
+  // Swipe móvil
+  let startX = 0;
+  wrap.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+  wrap.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) showTestimonial((currentIndex + 1) % testimonials.length);
+    else if (endX - startX > 50) showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length);
+  });
+
+  // Autoplay suave con loop infinito
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      showTestimonial((currentIndex + 1) % testimonials.length);
+    }, 5000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  wrap.addEventListener("mouseenter", stopAutoplay);
+  wrap.addEventListener("mouseleave", startAutoplay);
+
+  // Inicializar
+  showTestimonial(currentIndex);
+  window.addEventListener("resize", updateButtonPosition);
+  startAutoplay();
 });

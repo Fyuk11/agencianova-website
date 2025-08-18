@@ -40,73 +40,7 @@
 </head>
 <body>
 
-<!-- Header --
-<header class="header" data-header>
-  <div class="container header__inner">
-    <a href="#" class="logo" aria-label="Agencia Nova">Nova</a>
-
-    <!-- Botón hamburguesa --
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-nav-toggle>
-      <!-- Ícono simple con HTML/CSS para no depender de SVG --
-      <span class="hamburger"></span>
-    </button>
-
-<!-- Botón cerrar (oculto por defecto) --
-<button class="nav__close" data-nav-close aria-label="Cerrar menú">
-  ✕
-</button>
-
-
-    <nav class="nav" data-nav>
-      <ul class="nav__list">
-        <li><a class="nav__link" href="#hero">Inicio</a></li>
-        <li><a class="nav__link" href="#services">Servicios</a></li>
-        <li><a class="nav__link" href="#casos">Casos</a></li>
-        <li><a class="nav__link" href="#contacto">Contacto</a></li>
-      </ul>
-      <a class="btn btn--primary nav__cta" href="#contacto">Cotizar</a>
-    </nav>
-
-   <div class="nav-overlay" data-nav-overlay></div>
-
-  </div>
-</header>
--->
-<!--
-<header class="header" data-header>
-  <div class="container header__inner">
-    <a href="#hero" class="logo" aria-label="Agencia Nova">Nova</a>
-
-    <!-- Botón hamburguesa --
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-nav-toggle>
-      <span class="hamburger"></span>
-    </button>
-
-    <!-- Nav --
-    <nav class="nav" data-nav>
-      <!-- Botón X --
-   <!--   <button class="nav__close" data-nav-close aria-label="Cerrar menú">✕</button> --
-      <button class="nav__close" aria-label="Cerrar menú" data-nav-close>
-  ✕
-</button>
-
-
-      <ul class="nav__list">
-        <li><a class="nav__link" href="#hero">Inicio</a></li>
-        <li><a class="nav__link" href="#services">Servicios</a></li>
-        <li><a class="nav__link" href="#casos">Casos</a></li>
-        <li><a class="nav__link" href="#contacto">Contacto</a></li>
-      </ul>
-
-      <a class="btn btn--primary nav__cta" href="#contacto">Cotizar</a>
-    </nav>
-  </div>
-</header>
-
-<!-- Overlay (colocar justo después del header o al final del body) --
-<div class="nav-overlay" data-nav-overlay></div>
--->
-
+<!-- Header -->
 <header class="header" data-header>
   <div class="container header__inner">
     <a href="#hero" class="logo" aria-label="Agencia Nova">Nova</a>
@@ -265,32 +199,7 @@
 </section>
 
 
- <!-- testimonios -->
-<!--
- <section id="testimonios" class="section testimonials">
-  <div class="container">
-    <h2 class="section__title">Lo que dicen nuestros clientes</h2>
-    <div class="testimonials__wrap">
-      <div class="testimonial reveal">
-        <p class="testimonial__text">"Agencia Nova triplicó nuestras conversiones. Profesionalismo y creatividad en cada campaña."</p>
-        <h3 class="testimonial__author">— Juan Pérez, E-commerce</h3>
-      </div>
-      <div class="testimonial reveal">
-        <p class="testimonial__text">"Su equipo nos ayudó a posicionar nuestra marca en tiempo récord. Muy recomendados."</p>
-        <h3 class="testimonial__author">— Lucía Gómez, Startup</h3>
-      </div>
-      <div class="testimonial reveal">
-        <p class="testimonial__text">"Excelente soporte y resultados medibles. Cada inversión valió la pena."</p>
-        <h3 class="testimonial__author">— Martín Rodríguez, Retail</h3>
-      </div>
-          
-    </div>
-<button class="btn btn--ghost" id="prevTestimonial" aria-label="Anterior testimonial">‹</button>
-    <button class="btn btn--ghost" id="nextTestimonial" aria-label="Siguiente testimonial">›</button>
-  </div>
-</section>
--->
-
+ <!-- testimonios --
 <section id="testimonios" class="section testimonials">
   <div class="container">
     <h2 class="section__title">Lo que dicen nuestros clientes</h2>
@@ -309,9 +218,37 @@
       </div>
     </div>
 
-    <!-- Botones fuera del wrap, dentro del container -->
+    <!-- Botones fuera del wrap, dentro del container --
     <button class="btn btn--ghost" id="prevTestimonial" aria-label="Anterior testimonial">‹</button>
     <button class="btn btn--ghost" id="nextTestimonial" aria-label="Siguiente testimonial">›</button>
+  </div>
+</section>
+-->
+<section id="testimonios" class="section testimonials">
+  <div class="container">
+    <h2 class="section__title">Lo que dicen nuestros clientes</h2>
+
+    <div class="testimonials__wrap">
+      <div class="testimonial reveal">
+        <p class="testimonial__text">"Agencia Nova triplicó nuestras conversiones. Profesionalismo y creatividad en cada campaña."</p>
+        <h3 class="testimonial__author">— Juan Pérez, E-commerce</h3>
+      </div>
+      <div class="testimonial reveal">
+        <p class="testimonial__text">"Su equipo nos ayudó a posicionar nuestra marca en tiempo récord. Muy recomendados."</p>
+        <h3 class="testimonial__author">— Lucía Gómez, Startup</h3>
+      </div>
+      <div class="testimonial reveal">
+        <p class="testimonial__text">"Excelente soporte y resultados medibles. Cada inversión valió la pena."</p>
+        <h3 class="testimonial__author">— Martín Rodríguez, Retail</h3>
+      </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <button class="btn btn--ghost" id="prevTestimonial" aria-label="Anterior testimonial">‹</button>
+    <button class="btn btn--ghost" id="nextTestimonial" aria-label="Siguiente testimonial">›</button>
+
+    <!-- Indicadores (dots) -->
+    <div class="testimonials__dots"></div>
   </div>
 </section>
 
