@@ -1,12 +1,21 @@
 // Entry point de la web (ESM)
 // Importa módulos específicos
-import './nav.js';
+/*import './nav.js';
 import './animations.js';
 import './form.js';
 
 import './utils.js';
 import './reveal.js';
 import './cases.js'
+
+*/
+import './utils.js';     // helpers primero
+import './nav.js';
+import './animations.js';
+import './form.js';      // ahora puede usar qs y on sin problemas
+import './reveal.js';
+import './cases.js';
+
 
 
 // js/main.js

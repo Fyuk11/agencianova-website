@@ -763,6 +763,52 @@ input:focus, textarea:focus{border-color:var(--brand)}
 .form__alert.is-ok{color:var(--ok)}
 .form__alert.is-error{color:var(--danger)}
 
+
+/* Formulario */
+/*.form {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.form__row {
+  margin-bottom: 12px;
+}
+
+input, textarea {
+  width: 100%;
+  background: #0f141a;
+  color: var(--text);
+  border: 1px solid #1c222b;
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--brand);
+}
+
+.form__note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+.form__alert {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.form__alert.is-ok {
+  color: var(--ok);
+}
+
+.form__alert.is-error {
+  color: var(--danger);
+}
+*/
+
+
 /* Footer */
 .footer{padding:28px 0; border-top:1px solid #1c222b; background:#0b0f14}
 .footer__inner{display:flex; gap:16px; justify-content:space-between; align-items:center}
