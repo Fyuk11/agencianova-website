@@ -83,7 +83,7 @@ initCasesSlider();
 });
 */
 
-// Testimonios
+// Testimonios con flechas centradas en la tarjeta activa
 document.addEventListener("DOMContentLoaded", () => {
   const wrap = document.querySelector(".testimonials__wrap");
   const testimonials = document.querySelectorAll(".testimonial");
@@ -93,80 +93,53 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   function showTestimonial(index) {
+    currentIndex = index;
     const offset = testimonials[index].offsetLeft;
     wrap.scrollTo({
       left: offset,
       behavior: "smooth"
     });
+    updateButtonPosition();
   }
 
   prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-    showTestimonial(currentIndex);
+    showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length);
   });
 
   nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    showTestimonial(currentIndex);
+    showTestimonial((currentIndex + 1) % testimonials.length);
   });
 
-  // 👉 soporte de swipe
+  // Centrar botones verticalmente según tarjeta activa
+  /*function updateButtonPosition() {
+    const activeCard = testimonials[currentIndex];
+    const wrapRect = wrap.getBoundingClientRect();
+    const cardRect = activeCard.getBoundingClientRect();
+    const top = cardRect.top - wrapRect.top + activeCard.offsetHeight / 2;
+
+    prevBtn.style.top = `${top}px`;
+    nextBtn.style.top = `${top}px`;
+  } */
+function updateButtonPosition() {
+  const activeCard = testimonials[currentIndex];
+  const top = activeCard.offsetTop + activeCard.offsetHeight / 2 + 33;
+  
+
+  prevBtn.style.top = `${top}px`;
+  nextBtn.style.top = `${top}px`;
+}
+
+
+  // Inicial y en resize
+  updateButtonPosition();
+  window.addEventListener("resize", updateButtonPosition);
+
+  // Swipe en mobile
   let startX = 0;
-  wrap.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
+  wrap.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
   wrap.addEventListener("touchend", (e) => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) {
-      // swipe izquierda
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    } else if (endX - startX > 50) {
-      // swipe derecha
-      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentIndex);
-    }
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) showTestimonial((currentIndex + 1) % testimonials.length);
+    else if (endX - startX > 50) showTestimonial((currentIndex - 1 + testimonials.length) % testimonials.length);
   });
 });
-/*
-function updateButtonPosition() {
-  const wrap = document.querySelector(".testimonials__wrap");
-  const buttons = [document.getElementById("prevTestimonial"), document.getElementById("nextTestimonial")];
-  const height = wrap.offsetHeight;
-
-  buttons.forEach(btn => {
-    btn.style.top = `${height / 2}px`;
-  });
-}
-
-// Llamamos al inicio y cada vez que se haga resize
-updateButtonPosition();
-window.addEventListener("resize", updateButtonPosition);
-*/
-function updateButtonPosition() {
-  const wrap = document.querySelector(".testimonials__wrap");
-  const testimonials = document.querySelectorAll(".testimonial");
-  const prevBtn = document.getElementById("prevTestimonial");
-  const nextBtn = document.getElementById("nextTestimonial");
-
-  // Obtenemos el índice de la tarjeta actualmente visible
-  let currentIndex = 0;
-  const scrollLeft = wrap.scrollLeft;
-  testimonials.forEach((t, i) => {
-    if (t.offsetLeft <= scrollLeft + 10) currentIndex = i;
-  });
-
-  // Tomamos la tarjeta visible
-  const activeCard = testimonials[currentIndex];
-  const cardHeight = activeCard.offsetHeight;
-
-  // Posicionamos los botones verticalmente centrados respecto a la tarjeta visible
-  prevBtn.style.top = `${activeCard.offsetTop + cardHeight / 2}px`;
-  nextBtn.style.top = `${activeCard.offsetTop + cardHeight / 2}px`;
-}
-
-// Llamamos al cargar la página y cuando se haga scroll o resize
-updateButtonPosition();
-window.addEventListener("resize", updateButtonPosition);
-document.querySelector(".testimonials__wrap").addEventListener("scroll", updateButtonPosition);
