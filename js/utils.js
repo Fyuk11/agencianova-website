@@ -23,11 +23,3 @@ export const inView = (el, offset = 0) => {
   return rect.top <= (window.innerHeight - offset) && rect.bottom >= 0;
 };
 
-
-// utils.js (o al final de main.js)
-/*window.addEventListener("load", () => {
-  if (window.location.hash) {
-    history.replaceState(null, null, window.location.pathname);
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }
-});*/
