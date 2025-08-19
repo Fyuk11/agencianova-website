@@ -366,3 +366,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", updateButtonPosition);
   startAutoplay();
 });
+
+
+// Forzar scroll al inicio en cada recarga
+window.onload = () => {
+  if (window.location.hash) {
+    window.scrollTo(0, 0);
+    history.replaceState(null, null, ' '); // limpia el hash de la URL
+  }
+};
+
+

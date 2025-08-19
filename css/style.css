@@ -763,6 +763,8 @@ input:focus, textarea:focus{border-color:var(--brand)}
 .form__alert.is-ok{color:var(--ok)}
 .form__alert.is-error{color:var(--danger)}
 
+textarea { resize: none; }
+
 
 /* Formulario */
 /*.form {
@@ -809,11 +811,42 @@ input:focus, textarea:focus {
 */
 
 
-/* Footer */
+/* Footer *
 .footer{padding:28px 0; border-top:1px solid #1c222b; background:#0b0f14}
 .footer__inner{display:flex; gap:16px; justify-content:space-between; align-items:center}
 .footer__link{color:var(--muted)}
 .footer__link:hover{color:var(--text)}
+*/
+
+/* Footer nuevo */
+.footer {
+  background: #0f141a;
+  padding: 24px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.footer__nav a {
+  margin: 0 10px;
+  color: var(--muted);
+  transition: color .3s;
+}
+.footer__nav a:hover {
+  color: var(--brand);
+}
+
+/* --- solo en pantallas grandes --- */
+@media (min-width: 768px) {
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left; /* evita que quede todo centrado en desktop */
+  }
+}
+
+
 
 /* Extras UX */
 .btn-top{
