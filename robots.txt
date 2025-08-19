@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://agencia-nova.netlify.app/sitemap.xml
+Sitemap: https://agencianova-website.netlify.app/sitemap.xml

@@ -148,3 +148,7 @@ window.onload = () => {
 };
 
 
+// Ejemplo: trackear click en un botón específico
+document.querySelector('#miBoton')?.addEventListener('click', () => {
+  track('click', { event_category: 'CTA', event_label: 'Mi Botón Especial' });
+});

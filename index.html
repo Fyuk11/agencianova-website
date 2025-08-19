@@ -9,7 +9,7 @@
   <meta name="keywords" content="diseño web, agencia, marketing, branding, desarrollo, portfolio">
   <link rel="canonical" href="https://www.tu-dominio.com/">
   <meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="51337ce6f42f3fb1">
+<!-- <meta name="google-site-verification" content="51337ce6f42f3fb1"> -->
 
 
   <!-- Open Graph -->
@@ -40,11 +40,27 @@
     "sameAs":["https://www.instagram.com/tucuenta","https://www.linkedin.com/company/tucuenta"]
   }
   </script>
+
+<!-- Pegar esto en el head de todas las páginas -->
+<!-- GA4: bootstrap mínimo + librería + tu config en gtag.js -->
+<script>
+  // Dejar esto inline (pequeñito) para que GA pueda “bufferizar” eventos apenas carga
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+<script defer src="/js/gtag.js"></script>
+
+<!-- Scroll al inicio en recarga -->
+<script defer src="/js/scroll.js"></script>
+
+
 </head>
 <body>
 
 <!-- Header -->
 <header class="header" data-header>
+   <div class="container__general">
   <div class="container header__inner">
     <a href="#hero" class="logo" aria-label="Agencia Nova">Nova</a>
 
@@ -66,16 +82,21 @@
         <li><a class="nav__link" href="#services">Servicios</a></li>
         <li><a class="nav__link" href="#casos">Casos</a></li>
         <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        <li><a class="nav__link" href="/servicios.html">Servicios Page</a></li>
+        <li><a class="nav__link" href="/sobre-nosotros.html">Nosotros</a></li>
+
       </ul>
 
       <a class="btn btn--primary nav__cta" href="#contacto">Cotizar</a>
     </nav>
+  </div>
   </div>
 </header>
 
 
 <!-- Hero -->
 <section id="hero" class="hero">
+  <div class="container__general">
   <video autoplay muted loop playsinline 
          class="hero__video" 
          controlslist="nodownload nofullscreen noremoteplayback" 
@@ -93,10 +114,12 @@
     </p>
     <a href="#contacto" class="btn btn--primary">Solicitar Consulta</a>
   </div>
+  </div>
 </section>
 
 <!-- Servicios -->
 <section id="services" class="services">
+    <div class="container__general">
   <div class="container">
     <h2 class="section__title">Nuestros Servicios</h2>
     <p class="section__subtitle">Soluciones digitales integrales para hacer crecer tu negocio</p>
@@ -141,10 +164,12 @@
     
     </div>
   </div>
+  </div>
 </section>
 
 <!-- Casos -->
 <section id="casos" class="section cases"> 
+  <div class="container__general">
   <div class="container">
     <h2 class="section__title">Casos de Éxito</h2>
 
@@ -199,11 +224,13 @@
       <button class="cases__arrow cases__arrow--next" aria-label="Siguiente">›</button>
     </div>
   </div>
+  </div>
 </section>
 
 
  <!-- testimonios -->
 <section id="testimonios" class="section testimonials">
+  <div class="container__general">
   <div class="container">
     <h2 class="section__title">Lo que dicen nuestros clientes</h2>
 
@@ -229,6 +256,7 @@
     <!-- Indicadores (dots) -->
     <div class="testimonials__dots"></div>
   </div>
+  </div>
 </section>
 
 
@@ -236,6 +264,7 @@
 
     <!-- Planes/precios -->
 <section id="planes" class="section pricing">
+   <div class="container__general">
   <div class="container">
     <h2 class="section__title">Nuestros planes</h2>
     <div class="grid cards">
@@ -271,10 +300,12 @@
       </article>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- Contacto -->
 <section id="contacto" class="section contact">
+  <div class="container__general">
   <div class="container">
     <h2 class="section__title">Hablemos</h2>
     <form class="form" id="contactForm" novalidate>
@@ -295,10 +326,12 @@
       <div class="form__alert" id="formAlert" role="alert" aria-live="polite"></div>
     </form>
   </div>
+  </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
+  <div class="container__general">
   <div class="container footer__container">
     <p>&copy; 2025 Agencia Nova. Todos los derechos reservados.</p>
     <nav class="footer__nav">
@@ -307,6 +340,7 @@
       <a href="#casos">Casos</a>
       <a href="#contacto">Contacto</a>
     </nav>
+  </div>
   </div>
 </footer>
 
