@@ -64,17 +64,118 @@
 </header>
 
   <main class="section">
-    <div class="container">
-      <h1 class="section__title">Servicios</h1>
-      <p class="section__subtitle">Estrategia, performance y creatividad.</p>
+   <!-- SOBRE NOSOTROS -->
+<section class="about-hero">
+  <div class="about-hero__overlay">
+    <h1 class="about-hero__title">Sobre Nosotros</h1>
+    <p class="about-hero__subtitle">Nuestra pasión por crear ropa urbana y elegante, con estilo y calidad.</p>
+  </div>
+</section>
 
-      <!-- Reutiliza tus cards de servicios, agrega beneficios/FAQ/paquetes -->
+<section class="about-story">
+  <div class="container">
+    <h2>Nuestra Historia</h2>
+    <p>Desde el primer diseño, nuestro objetivo fue ofrecer prendas que mezclen elegancia, comodidad y estilo urbano. Cada colección refleja nuestro compromiso con la calidad y el detalle.</p>
+    <p>Creemos en la autenticidad, en la ropa que no solo se ve bien, sino que también cuenta una historia y conecta con quien la usa.</p>
+  </div>
+</section>
+
+<section class="about-team fade-up">
+  <div class="container">
+    <h2>Conoce al Equipo</h2>
+    <div class="team-cards">
+      <div class="team-card">
+        <img src="https://via.placeholder.com/250" alt="Nombre Miembro">
+        <h3>Luciana Gómez</h3>
+        <p>Fundadora / Creative Director</p>
+      </div>
+      <div class="team-card">
+        <img src="https://via.placeholder.com/250" alt="Nombre Miembro">
+        <h3>Rodrigo Gómez</h3>
+        <p>Co-Fundador / Marketing & Digital</p>
+      </div>
+      <div class="team-card">
+        <img src="https://via.placeholder.com/250" alt="Nombre Miembro">
+        <h3>Equipo Creativo</h3>
+        <p>Diseño y Producción</p>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="about-values fade-up">
+  <div class="container">
+    <h2>Nuestros Valores</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Calidad</h3>
+        <p>Cada prenda está cuidadosamente diseñada y producida.</p>
+      </div>
+      <div class="value-card">
+        <h3>Estilo</h3>
+        <p>Combinamos elegancia con tendencias urbanas actuales.</p>
+      </div>
+      <div class="value-card">
+        <h3>Innovación</h3>
+        <p>Siempre buscamos nuevas formas de sorprender y mejorar.</p>
+      </div>
+      <div class="value-card">
+        <h3>Compromiso</h3>
+        <p>Con nuestros clientes, nuestro equipo y nuestra marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="container">
+    <h2>Hablemos de tu estilo</h2>
+    <a href="contacto.html" class="btn">Contactanos</a>
+  </div>
+</section>
+
   </main>
 
-  <footer class="footer">…tu footer…</footer>
+  <!-- Footer -->
+<footer class="footer">
+  <div class="container__general">
+  <div class="container footer__container">
+    <p>&copy; 2025 Agencia Nova. Todos los derechos reservados.</p>
+    <nav class="footer__nav">
+      <a href="#hero">Inicio</a>
+      <a href="#services">Servicios</a>
+      <a href="#casos">Casos</a>
+      <a href="#contacto">Contacto</a>
+        <a class="nav__link" href="/servicios.html">Servicios Page</a>
+        <a class="nav__link" href="/sobre-nosotros.html">Nosotros</a>
+    </nav>
+  </div>
+  </div>
+</footer>
 
   <!-- Tu main ESM si lo necesitas aquí también -->
   <script type="module" src="/js/main.js" defer></script>
+
+  <script>
+  const faders = document.querySelectorAll('.fade-up');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('show');
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
 </body>
 </html>
