@@ -216,11 +216,18 @@ a{color:inherit; text-decoration:none}
 
 /* Desktop */
 /* Desktop */
+/* =======================
+   Desktop Navigation
+   ======================= */
 @media (min-width: 900px) {
+
   .header__inner {
-    padding: 0 7%; /* le damos aire a izquierda y derecha */
-    max-width: 900px;   /* ancho máximo del contenido */
-    margin: 0 auto;      /* centra horizontalmente */
+    padding: 0 15%;              /* aire lateral */
+    max-width: 1200px;          /* ancho máximo */
+    margin: 0 auto;             /* centrado */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .nav {
@@ -229,34 +236,53 @@ a{color:inherit; text-decoration:none}
     background: transparent;
     padding: 0;
     flex-direction: row;
-    gap: 11px;
     align-items: center;
     box-shadow: none;
     height: auto;
   }
 
   .nav__list {
+    display: flex;
     flex-direction: row;
-    gap: 11px;
-    flex-wrap: nowrap;       /* evita que los links pasen a otra línea */
-    white-space: nowrap;     /* evita que los textos largos se corten */
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;   /* evita salto de línea */
+    flex-wrap: nowrap;     /* no permite que baje */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav__link {
+    color: var(--muted);
+    padding: 4px 6x;
+    text-decoration: none;
+  }
+
+  .nav__link:hover,
+  .nav__link.is-active {
+    color: var(--text);
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 6px;
   }
 
   .nav__cta {
-    display: inline-block;
-    padding: 10px 24px;
+    margin-left: 0px;      /* separa el CTA de los links */
+    padding: 5px 12px;
     background: var(--brand);
     color: #0b0d10;
     font-weight: 600;
     border-radius: 999px;
     transition: background 0.3s;
+    display: inline-block;
+    flex-shrink: 0;         /* evita que se achique o salte */
+    text-decoration: none;
   }
 
   .nav__cta:hover {
     background: var(--brand-2);
   }
 
-  /* ⬇️ Esto solo se aplica en desktop */
   .nav-toggle,
   .nav__close,
   .nav-overlay {
@@ -264,7 +290,9 @@ a{color:inherit; text-decoration:none}
   }
 }
 
-/* Opcional: ajustar tamaño de fuente y gaps para pantallas muy grandes */
+/* =======================
+   Ultra Wide Screens
+   ======================= */
 @media (min-width: 1600px) {
   .nav__list {
     gap: 2rem;          /* más espacio entre links */
@@ -275,9 +303,10 @@ a{color:inherit; text-decoration:none}
   }
 
   .logo {
-    font-size: 2rem;    /* si querés escalar el logo también */
+    font-size: 2rem;
   }
 }
+
 
 
 
