@@ -799,3 +799,13 @@ textarea { resize: none; }
   p { font-size: 0.9rem; }
   /* stack vertical, ocultar fondos pesados, etc */
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* ocupa todo el espacio disponible */
+}
