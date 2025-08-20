@@ -28,7 +28,40 @@
 </head>
 <body>
   <!-- Header reutilizado -->
-  <header class="header">…tu mismo header…</header>
+ <!-- Header -->
+<header class="header" data-header>
+   <div class="container__general">
+  <div class="container header__inner">
+    <a href="#hero" class="logo" aria-label="Agencia Nova">Nova</a>
+
+    <!-- Botón hamburguesa -->
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-nav-toggle>
+      <span class="hamburger"></span>
+    </button>
+
+    <!-- Overlay -->
+    <div class="nav-overlay" data-nav-overlay></div>
+
+    <!-- Nav -->
+    <nav class="nav" data-nav>
+      <!-- Botón X -->
+      <button class="nav__close" aria-label="Cerrar menú" data-nav-close>✕</button>
+
+      <ul class="nav__list">
+        <li><a class="nav__link" href="/index.html#hero">Inicio</a></li>
+        <li><a class="nav__link" href="/index.html#services">Servicios</a></li>
+        <li><a class="nav__link" href="/index.html#casos">Casos</a></li>
+        <li><a class="nav__link" href="/index.html#contacto">Contacto</a></li>
+        <li><a class="nav__link" href="/servicios.html">Servicios Page</a></li>
+        <li><a class="nav__link" href="/sobre-nosotros.html">Nosotros</a></li>
+
+      </ul>
+
+      <a class="btn btn--primary nav__cta" href="/index.html#contacto">Cotizar</a>
+    </nav>
+  </div>
+  </div>
+</header>
 
   <main class="section">
     <div class="container">

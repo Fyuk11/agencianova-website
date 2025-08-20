@@ -169,6 +169,7 @@ a{color:inherit; text-decoration:none}
   text-align: left;
   border-radius: 6px;
   transition: background 0.2s;
+  
 }
 
 .nav__cta:hover {
@@ -235,7 +236,9 @@ a{color:inherit; text-decoration:none}
 
   .nav__list {
     flex-direction: row;
-    gap: 32px;
+    gap: 11px;
+     flex-wrap: nowrap;       /* evita que los links pasen a otra línea */
+     white-space: nowrap;     /* evita que los textos largos se corten */
   }
 
   .nav__cta {
@@ -255,6 +258,21 @@ a{color:inherit; text-decoration:none}
   .nav__close,
   .nav-overlay {
     display: none !important;
+  }
+}
+
+/* Opcional: ajustar tamaño de fuente y gaps para pantallas muy grandes */
+@media (min-width: 1600px) {
+  .nav__list {
+    gap: 2rem;          /* más espacio entre links */
+  }
+
+  .nav__cta {
+    padding: 12px 28px; /* botón un poquito más grande */
+  }
+
+  .logo {
+    font-size: 2rem;    /* si querés escalar el logo también */
   }
 }
 
@@ -766,6 +784,7 @@ textarea { resize: none; }
   max-width: 1200px; /* ajusta según tu diseño */
   margin: 0 auto;    /* centra el bloque */
   padding: 0 1rem;   /* respiración lateral */
+   box-sizing: border-box;
 
 }/* Tablets */
 @media (max-width: 900px) {
@@ -780,4 +799,3 @@ textarea { resize: none; }
   p { font-size: 0.9rem; }
   /* stack vertical, ocultar fondos pesados, etc */
 }
-
